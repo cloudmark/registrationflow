@@ -1,0 +1,133 @@
+<form name="newUserForm" ng-submit="regCtrl.submit()" novalidate>
+    <input type="text" class="fix" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" class="form-control" id="temp">
+
+    <!-- Step 1 -->
+    <div class="form-group" ng-show="regCtrl.step === 1">
+        <label for="inputEmail">What is your email?</label>
+        <input type="email" class="form-control" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" id="inputEmail" placeholder="Email" focusme required>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="form-group" ng-show="regCtrl.step === 2">
+        <div class="row text-center">
+          <span class="gray-clr fa fa-3x fa-arrow-up"></span>
+        </div>
+        <div class="row">
+          <div class="panel-default">
+              <div class="gray-clr panel-body">
+                  With almost everything you do at Casino X you collect Points.  
+                  You can use your Points to get rewards or to level up thus accessing 
+                  more valuable rewards.  Finalise your registration to collect your first reward. 
+              </div>
+          </div>
+        </div>
+    </div>
+
+
+    <!-- Step 3 -->
+    <div class="form-group" ng-show="regCtrl.step === 3">
+        <label for="inputPassword">Write your password two times...</label>
+        <input type="password" class="form-control" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" id="inputPassword" placeholder="Password" required focusme="{{regCtrl.step === 3}}">
+        <br/>
+        <input type="password" class="form-control" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" id="inputConfirmPassword" placeholder="Confirm Password" required>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="form-group" ng-show="regCtrl.step === 4">
+        <label for="inputUsername">Pick a username...</label>
+        <input type="text" class="form-control" autocomplete="off"  autocapitalize="off" autocorrect="off" spellcheck="false" id="inputUsername" placeholder="Username" required focusme="{{regCtrl.step === 4}}">
+    </div>
+
+    <!-- Step 5 -->
+    <div class="form-group" ng-show="regCtrl.step === 5">
+        <label for="inputFirstName">What's your first name?</label>
+        <input type="text" class="form-control" autocomplete="off"  autocapitalize="off" autocorrect="off" spellcheck="false" id="inputFirstName" placeholder="First Name" required focusme="{{regCtrl.step === 5}}">
+    </div>
+
+    <!-- Step 6 -->
+     <div class="form-group" ng-show="regCtrl.step === 6">
+         <label for="inputLastName">What's your last name?</label>
+        <input type="text" class="form-control" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" id="inputLastName" placeholder="Last Name" required focusme="{{regCtrl.step === 6}}">
+    </div>
+
+    <!-- Step 7 -->
+     <div class="form-group" ng-show="regCtrl.step === 7">
+        <label for="inputDoB">When were you born?</label>
+        <input type="date" class="form-control" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" id="inputDoB" placeholder="DOB" required focusme="{{regCtrl.step === 7}}">
+     </div>
+
+    <!-- Step 8 -->
+    <div ng-show="regCtrl.step === 8">
+        <div class="form-group">
+            <label for="inputCountry">Do you live in Sweden?</label>
+        </div>
+
+        <div class="form-group">
+            <img class="img-responsive center-block" ng-src="/img/sweden.png"/>
+        </div>
+    </div>
+
+    <!-- Step 9 -->
+    <div class="form-group" ng-show="regCtrl.step === 9">
+        <label for="inputPostalCode">What's your postal code?</label>
+        <input type="text" class="form-control" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" id="inputPostalCode" placeholder="Postal Code" maxlength=5 minlength=5 required focusme="{{regCtrl.step === 9}}">
+    </div>
+
+    <!-- Step 10 -->
+    <div class="form-group" ng-show="regCtrl.step === 10">
+        <label for="inputCity">What city do you live in?</label>
+        <input type="text" class="form-control" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" id="inputCity" placeholder="City" minlength=3 required focusme="{{regCtrl.step === 10}}">
+    </div>
+
+    <!-- Step 11 -->
+    <div class="form-group" ng-show="regCtrl.step === 11">
+        <label for="inputAddress">Your street name & number?</label>
+        <input type="text" class="form-control" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" id="inputAddress" placeholder="Street name & number" required focusme="{{regCtrl.step === 11}}">
+    </div>
+
+    <!-- Step 12 -->
+    <div ng-show="regCtrl.step === 12">
+        <div class="form-group">
+            <label for="inputPhoneCode">What's your phone number?</label>
+        </div>
+        <div class="form-group">
+            <div class="form-group col-xs-4">
+              <select id="inputPhoneCode" ng-model="step12Ctrl.phoneCountryCode" class="form-control">
+                <option value="+46">+46</option>
+              </select>
+            </div>
+            <div class="form-group col-xs-8">
+                <input type="text" class="form-control" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" id="inputPhone" placeholder="(0)" required focusme="{{regCtrl.step === 12}}">          
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 13 --> 
+    <div class="row" ng-show="regCtrl.step === 13">
+        <div class="panel-default">
+            <div class="gray-clr panel-body">
+                <h3 class="text-center">Make your first deposit!</h3> 
+            </div>
+        </div>
+
+        <div class="panel-body">
+          <div class="form-group">
+                <button type="submit" ng-click="successCtrl.depositWithBonus()" class="btn btn-danger btn-lg btn-block">Deposit with Bonus</button>
+          </div>
+
+          <div class="form-group">
+                <button type="submit" ng-click="successCtrl.depositWithoutBonus()" class="btn btn-danger btn-lg btn-block">Deposit without Bonus</button>
+          </div>
+          <div class="form-group">
+                <button type="submit" ng-click="successCtrl.justRegister()" class="btn btn-default btn-lg btn-block">Just Register For Now</button>
+          </div>
+        </div>
+    </div>
+
+    <div class="form-group" ng-show="regCtrl.step !== 13">
+        <button type="button" class="btn btn-default btn-lg btn-block" disabled ng-show="regCtrl.step === 8">No</button>
+        <button type="button" class="btn btn-danger btn-lg btn-block" ng-click="regCtrl.nextStep()"><i ng-hide="regCtrl.buttonMsg" class="fa  fa-arrow-right"></i>{{regCtrl.buttonMsg}}</button>
+    </div>
+
+    <input type="submit" index="-1" style="display:none"/>
+</form>

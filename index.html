@@ -1,0 +1,99 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head lang="en">
+    <meta charset="utf-8">
+
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="max-age=0, must-revalidate">
+    <meta name="viewport" content="width=device-width,user-scalable=0, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta http-equiv="expires" content="-1">
+    <title>Casino App</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <!-- IOS Tags -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Registration POC">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Android Tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+        
+    <!-- Microsoft Tags -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta http-equiv="cleartype" content="on">
+        
+        
+    <!-- Open Sans -->
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <script src="bower_components/angular/angular.js" type="text/javascript"></script>
+    <script src="//code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="bower_components/angular-svg-round-progressbar/build/roundProgress.min.js" type="text/javascript"></script>
+    <script src="bower_components/angular-route/angular-route.min.js" type="text/javascript"></script>
+        
+    </head>
+    <body>
+        <div ng-app="CasinoApp" ng-controller="ShellController as shell">
+           <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-xs-2 pull-left" ng-click="shell.leftButton()">
+                    <div class="btn btn-link navbar-btn"><i class="fa fa-2x fa-arrow-left"></i></div>
+                </div>
+                <div id="title" class="navbar-brand col-xs-8">{{shell.title()}}</div>
+                <div class="col-xs-2" ng-click="shell.rightButton()">
+                    <div class="btn btn-link navbar-btn pull-right"><i class="fa fa-2x fa-weixin"></i></div>
+                </div>
+              </div>
+            </div>
+        </nav>
+            
+        <!-- Error --> 
+        <div ng-show="shell.errors.length > 0">
+          <div class="text-center">
+              <span class="red-clr glyphicon glyphicon-exclamation-sign fa-3x"></span>
+          </div>
+          <div>
+              <div class="panel-default">
+                  <div class="red-clr panel-body text-center">
+                      <div ng-repeat="error in shell.errors">
+                        <h4>{{error}}</h4>
+                      </div>
+                      <div>
+                          <h4>Please try again!</h4>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+        
+        <!-- Progress --> 
+        <div ng-hide="shell.errors.length > 0" class="container-wrapper">
+            <div class="gray-clr text-center"><h4>Collect Points and Get Rewarded</h4></div>
+            <div ng-show="shell.showProgress">
+            <div class="progress-wrapper">
+                <div class="progress-r">
+                    <div>{{shell.current | number}} / {{shell.max | number}}</div>
+                    <div>POINTS</div>
+                </div>
+                <div class="container-fluid">
+                    <div round-progress max="shell.max" current="shell.current"
+                        color="#45ccce" bgcolor="#eaeaea"
+                        semi="true" rounded="true" radius="50" stroke="7"
+                        clockwise="true" responsive="true"
+                        iterations="100" animation="easeInOutQuart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr/>
+            
+            <div class="container" ng-view>
+                
+            </div>
+        </div>
+        
+        <script src="js/app.js" type="application/javascript"></script>
+    </body>
+</html>
