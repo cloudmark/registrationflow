@@ -1,0 +1,178 @@
+<form name="newUserForm" ng-submit="regCtrl.submit()" novalidate>
+    <input type="text" class="fix" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" class="form-control" id="temp">
+
+    <!-- Step 0 -->
+    <div class="form-group" ng-show="regCtrl.step === 0">
+    </div>
+    
+    <!-- Step 1 -->
+    <input-box id="inputEmail" ng-show="regCtrl.step === 1" 
+               focus="{{regCtrl.step === 1}}"
+               placeholder="abc@example.com"
+               model="regCtrl.user.email"
+               type="email"
+               text="What is your email?"></input-box>
+    
+
+    <!-- Step 2 -->
+    <div class="form-group" ng-show="regCtrl.step === 2">
+        <div class="row text-center">
+          <span class="gray-clr fa fa-3x fa-arrow-up"></span>
+        </div>
+        <div class="row">
+          <div class="panel-default">
+              <div class="gray-clr panel-body">
+                  With almost everything you do at Casino X you collect Points.  
+                  You can use your Points to get rewards or to level up thus accessing 
+                  more valuable rewards.  Finalise your registration to collect your first reward. 
+              </div>
+          </div>
+        </div>
+    </div>
+
+
+    <!-- Step 3 -->
+    <div class="form-group" ng-show="regCtrl.step === 3">
+        <label for="inputPassword">Write your password two times...</label>
+        <input type="password" ng-model="regCtrl.user.password" class="form-control" 
+               autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" 
+               id="inputPassword" placeholder="Password"
+               focusme="{{regCtrl.step === 3 && regCtrl.isInPassword}}"
+               required >
+        <br/>
+        <input type="password" ng-model="regCtrl.user.confirmPassword" class="form-control" 
+               autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" 
+               id="inputConfirmPassword" placeholder="Confirm Password" 
+               focusme="{{regCtrl.step === 3 && regCtrl.isInPasswordConfirm}}"
+               equals="{{regCtrl.user.password}}" required>
+    </div>
+
+    <!-- Step 4 -->
+    <input-box id="inputUsername" ng-show="regCtrl.step === 4" 
+               focus="{{regCtrl.step === 4}}"
+               placeholder="Username"
+               model="regCtrl.user.username"
+               type="text"
+               text="Pick a username..." 
+               minlength="3"></input-box>
+
+
+    <!-- Step 5 -->
+    <input-box id="inputFirstName" ng-show="regCtrl.step === 5" 
+               focus="{{regCtrl.step === 5}}"
+               placeholder="First Name"
+               model="regCtrl.user.firstName"
+               type="text"
+               text="What's your first name?" 
+               minlength="3"></input-box>
+    
+    <!-- Step 6 -->
+    <input-box id="inputLastName" ng-show="regCtrl.step === 6" 
+               focus="{{regCtrl.step === 6}}"
+               placeholder="Last Name"
+               model="regCtrl.user.lastName"
+               type="text"
+               text="What's your last name?" 
+               minlength="3"></input-box>
+    
+     <!-- Step 7 -->
+     <div class="form-group" ng-show="regCtrl.step === 7">
+        <label for="inputDoB">When were you born?</label>
+        <input type="tel" date-of-birth ng-model="regCtrl.user.dob" class="form-control" 
+               autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" 
+               id="inputDoB" placeholder="YY - MM - DD" 
+               focusme="{{regCtrl.step === 7}}"
+               required>
+     </div>
+
+    <!-- Step 8 -->
+    <div ng-show="regCtrl.step === 8">
+        <div class="form-group">
+            <label for="inputCountry">Do you live in Sweden?</label>
+        </div>
+
+        <div class="form-group">
+            <img class="img-responsive center-block" ng-src="images/sweden.png"/>
+        </div>
+    </div>
+
+    <!-- Step 9 -->
+    <input-box id="inputPostalCode" ng-show="regCtrl.step === 9" 
+               focus="{{regCtrl.step === 9}}"
+               placeholder="Postal Code"
+               model="regCtrl.user.postalCode"
+               type="tel"
+               text="What's your postal code?" 
+               maxlength="5" minlength="5" pattern="[0-9]*"></input-box>
+    
+
+    <!-- Step 10 -->
+    <input-box id="inputCity" ng-show="regCtrl.step === 10" 
+               focus="{{regCtrl.step === 10}}"
+               placeholder="City"
+               model="regCtrl.user.city"
+               type="text"
+               text="What city do you live in?" 
+               minlength="3"></input-box>
+    
+    <!-- Step 11 -->
+    <input-box id="inputAddress" ng-show="regCtrl.step === 11" 
+               focus="{{regCtrl.step === 11}}"
+               placeholder="Street name & number"
+               model="regCtrl.user.address"
+               type="text"
+               text="Your street name & number?" 
+               minlength="3"></input-box>
+    
+    <!-- Step 12 -->
+    <div ng-show="regCtrl.step === 12">
+        <div class="form-group">
+            <label for="inputPhoneCode">What's your phone number?</label>
+        </div>
+        <div class="form-group">
+            <div class="form-group col-xs-4">
+              <select id="inputPhoneCode" ng-model="regCtrl.user.phoneCountryCode" class="form-control">
+                <option value="+46">+46</option>
+              </select>
+            </div>
+            <div class="form-group col-xs-8">
+                <input type=tel class="form-control" ng-model="regCtrl.user.phoneNumber" class="form-control" 
+                       autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" 
+                       focusme="{{regCtrl.step === 12}}"
+                       id="inputPhone"
+                       required minlength="7" maxlength="15" phone-number prefix="(0)" default-country="sv" >
+        
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 13 --> 
+    <div class="row" ng-show="regCtrl.step === 13">
+        <div class="panel-default">
+            <div class="gray-clr panel-body">
+                <h3 class="text-center">Make your first deposit!</h3> 
+            </div>
+        </div>
+
+        <div class="panel-body">
+          <div class="form-group">
+                <button type="submit" ng-click="successCtrl.depositWithBonus()" class="btn btn-danger btn-lg btn-block">Deposit with Bonus</button>
+          </div>
+
+          <div class="form-group">
+                <button type="submit" ng-click="successCtrl.depositWithoutBonus()" class="btn btn-danger btn-lg btn-block">Deposit without Bonus</button>
+          </div>
+          <div class="form-group">
+                <button type="submit" ng-click="successCtrl.justRegister()" class="btn btn-default btn-lg btn-block">Just Register For Now</button>
+          </div>
+        </div>
+    </div>
+
+    <div class="form-group" ng-show="regCtrl.step !== 13">
+        <button type="button" class="btn btn-default btn-lg btn-block" disabled ng-show="regCtrl.step === 8">No</button>
+        <button type="submit" class="btn btn-danger btn-lg btn-block" 
+                focusme="{{regCtrl.step === 2 || regCtrl.step === 8 }}"><i ng-hide="regCtrl.buttonMsg" class="fa  fa-arrow-right"></i>{{regCtrl.buttonMsg}}</button>
+    </div>
+
+    <input type="submit" index="-1" style="display:none"/>
+</form>

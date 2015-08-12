@@ -1,0 +1,7 @@
+{
+    "name": "Registration",
+    "description": "A Seamless Registration Flow",
+    "env": {
+	"BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-ruby.git"
+    }
+}

@@ -1,0 +1,17 @@
+<div ng-hide="errors.length > 0" class="container-wrapper">
+    <div class="gray-clr text-center"><h4>Collect Points and Get Rewarded</h4></div>
+    <div class="progress-wrapper">
+        <div class="progress-r">
+            <div>{{current | number}} / {{max | number}}</div>
+            <div>POINTS</div>
+        </div>
+        <div class="container-fluid">
+            <div round-progress max="max" current="current"
+                color="#45ccce" bgcolor="#eaeaea"
+                semi="true" rounded="true" radius="90" stroke="7"
+                clockwise="true" responsive="false"
+                iterations="100" animation="easeInOutQuart">
+            </div>
+        </div>
+    </div>
+</div>

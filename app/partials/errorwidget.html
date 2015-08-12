@@ -1,0 +1,20 @@
+<!-- Error --> 
+<div ng-show="errors.length > 0">
+    <div class="error-container">
+        <div class="text-center">
+          <span class="red-clr glyphicon glyphicon-exclamation-sign fa-3x"></span>
+        </div>
+        <div>
+          <div class="panel-default">
+              <div class="red-clr panel-body text-center">
+                  <div ng-repeat="error in errors">
+                    <h4>{{error}}</h4>
+                  </div>
+                  <div>
+                      <h4>Please try again!</h4>
+                  </div>
+              </div>
+          </div>
+        </div>
+    </div>
+</div>

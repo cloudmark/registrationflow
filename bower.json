@@ -1,0 +1,31 @@
+{
+  "name": "Registration POC",
+  "description": "A Registration Flow POC",
+  "dependencies": {
+    "angular": "~1.4.3",
+    "angular-route": "~1.4.3",
+    "bootstrap": "~3.3.5",
+    "angular-svg-round-progressbar": "~0.2.11",
+    "components-font-awesome": "~4.4.0"
+  },
+  "authors": [
+    "Mark Galea <mmgalea@gmail.com>"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "appPath": "app",
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  }
+}
